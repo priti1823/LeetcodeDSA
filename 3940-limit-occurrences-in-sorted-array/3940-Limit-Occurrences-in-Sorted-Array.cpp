@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> limitOccurrences(vector<int>& nums, int k) {
+        vector<int>ans;
+        for(int i=0;i<nums.size();i++)
+        {  int count=0;
+          if(i==0||nums[i]!=nums[i-1])
+          {
+            for(int j=0;j<nums.size();j++)
+            {
+                if(nums[i]==nums[j])
+                count++;
+
+            }
+            if(count>k)
+             count=k;
+             while(count>0)
+             {
+                ans.push_back(nums[i]);
+                count--;
+             }
+
+          }
+
+        }
+       return ans; 
+    }
+};
